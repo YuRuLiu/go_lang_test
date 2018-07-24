@@ -1,0 +1,12 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "ywvcGkQ0tQZBUc3ld1heC0CDWac=",
+			"path": "go_package/phone",
+			"revision": ""
+		}
+	],
+	"rootPath": "go_test/week7"
+}
