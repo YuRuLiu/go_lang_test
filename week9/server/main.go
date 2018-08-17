@@ -12,8 +12,8 @@ import (
 )
 
 type Weather struct {
-	region string `gorm:"column:'region';default:'taipei_city'"`
-	info   string `gorm:"column:'info';default:''"`
+	Region string `gorm:"default:'taipei_city';"`
+	Info   string `gorm:"default:'';"`
 }
 
 func main() {
@@ -91,7 +91,7 @@ func setRedis(key string, value string) {
 }
 
 func getDB(region string) string {
-	var weather Weather
+	var weatherData Weather
 
 	db, err := gorm.Open("mysql", "root:root@/go?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
@@ -100,13 +100,13 @@ func getDB(region string) string {
 	}
 	defer db.Close()
 
-	db.Where("region = ?", region).Find(&weather)
+	db.Where("region = ?", region).Find(&weatherData)
 
-	return weather.info
+	return weatherData.Info
 }
 
 func setDB(region string, info string) {
-	weather := Weather{region, info}
+	weatherData := Weather{region, info}
 
 	db, err := gorm.Open("mysql", "root:root@/go?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
@@ -115,5 +115,5 @@ func setDB(region string, info string) {
 	}
 	defer db.Close()
 
-	db.Create(&weather)
+	db.Create(&weatherData)
 }
