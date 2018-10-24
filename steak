@@ -1,0 +1,17 @@
+1. 什麼是heap ? 什麼是stack ？
+    heap
+        存放 reference type 的變數
+        動態配置記憶體空間，存活時間不規律也不可預測的
+    stack
+        存放 reference type 的變數
+        存活時間是規律可預測的
+
+2. queue 的儲存方式屬於heap 還是stack?
+    heap的儲存方式為一個空間，任何順序都可以
+    stack的儲存方式為先進後出
+    queue儲存方式為先進先出
+    以這樣看來，queue是較偏向屬於heap的儲存方式
+
+3. 說明heap 和stack 記憶體的回收機制
+    stack：會由系統自己回收記憶體空間
+    heap：需要由工程師使用程式自行回收空間
